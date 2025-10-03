@@ -56,7 +56,7 @@ Future<Map<String, dynamic>> _loadTestConfig() async {
   try {
     final file = File('test_config.json');
     final contents = await file.readAsString();
-    return jsonDecode(contents);
+    return jsonDecode(contents) as Map<String, dynamic>;
   } catch (e) {
     print('⚠️  Could not load test configuration: $e');
     return {};
