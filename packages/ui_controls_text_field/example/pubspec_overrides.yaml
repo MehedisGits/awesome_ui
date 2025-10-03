@@ -1,0 +1,8 @@
+# melos_managed_dependency_overrides: ui_controls_text_field,ui_core,ui_tokens
+dependency_overrides:
+  ui_controls_text_field:
+    path: ..
+  ui_core:
+    path: ../../ui_core
+  ui_tokens:
+    path: ../../ui_tokens

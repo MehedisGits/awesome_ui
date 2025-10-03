@@ -1,0 +1,30 @@
+name: ui_controls_text_field
+description: Cross-platform text field component for the Awesome UI library
+version: 1.0.0
+homepage: https://github.com/rakibulislammehedi/awesome_ui
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  ui_tokens:
+    path: ../ui_tokens
+  ui_core:
+    path: ../ui_core
+  meta: ^1.11.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+topics:
+  - design-system
+  - text-field
+  - input
+  - cross-platform
+  - accessibility

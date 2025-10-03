@@ -1,0 +1,44 @@
+{
+  "test_config": {
+    "golden_tests": {
+      "enabled": true,
+      "output_dir": "test/golden",
+      "platforms": ["android", "ios", "web", "windows", "macos", "linux"]
+    },
+    "accessibility_tests": {
+      "enabled": true,
+      "wcag_level": "AA",
+      "min_touch_target": 48.0,
+      "color_contrast_ratio": 4.5,
+      "screen_reader_tests": true,
+      "keyboard_navigation_tests": true
+    },
+    "performance_tests": {
+      "enabled": true,
+      "max_build_time": "100ms",
+      "max_render_time": "200ms",
+      "max_memory_usage": "100MB",
+      "animation_performance": true
+    },
+    "cross_platform_tests": {
+      "enabled": true,
+      "platforms": ["material", "cupertino", "web", "adaptive"],
+      "themes": ["light", "dark", "high_contrast"],
+      "breakpoints": {
+        "mobile": 400,
+        "tablet": 600,
+        "desktop": 900,
+        "large_desktop": 1200
+      }
+    },
+    "integration_tests": {
+      "enabled": true,
+      "test_scenarios": ["user_flows", "component_interactions", "theme_switching", "platform_adaptation"]
+    },
+    "coverage": {
+      "enabled": true,
+      "min_coverage": 80,
+      "exclude_files": ["**/*.g.dart", "**/*.freezed.dart", "**/test/**", "**/example/**"]
+    }
+  }
+}

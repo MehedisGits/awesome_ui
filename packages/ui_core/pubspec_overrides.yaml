@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: ui_tokens
+dependency_overrides:
+  ui_tokens:
+    path: ../ui_tokens

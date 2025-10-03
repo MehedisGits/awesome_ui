@@ -1,0 +1,21 @@
+# Global owners
+* @rakibulislammehedi
+
+# Package-specific owners
+/packages/ui_tokens/ @rakibulislammehedi
+/packages/ui_core/ @rakibulislammehedi
+/packages/ui_controls_button/ @rakibulislammehedi
+/packages/ui_controls_text_field/ @rakibulislammehedi
+/packages/ui_controls_card/ @rakibulislammehedi
+/packages/ui_showcase/ @rakibulislammehedi
+
+# Infrastructure files
+/.github/ @rakibulislammehedi
+/melos.yaml @rakibulislammehedi
+/analysis_options.yaml @rakibulislammehedi
+/tools/ @rakibulislammehedi
+
+# Documentation
+/README.md @rakibulislammehedi
+/CONTRIBUTING.md @rakibulislammehedi
+/CHANGELOG.md @rakibulislammehedi

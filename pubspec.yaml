@@ -30,6 +30,9 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
   
+  # Monorepo management
+  melos: ^6.3.3
+  
   # Testing
   golden_toolkit: ^0.15.0
   mockito: ^5.4.4

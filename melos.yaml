@@ -1,0 +1,103 @@
+name: awesome_ui
+repository: https://github.com/rakibulislammehedi/awesome_ui
+
+packages:
+  - packages/**
+
+command:
+  version:
+    workspaceChangelog: true
+    linkToCommits: true
+    linkToReleases: true
+    commitMessageVersionPrefix: "v"
+    commitMessageFormat: "chore: release version {{version}}"
+    changelogHeader: "# Changelog\n\nAll notable changes to this project will be documented in this file.\n\n"
+    changelogVersionHeader: "## [{{version}}] - {{date}}"
+    changelogVersionFooter: "{{#each commits}}\n- {{#if scope}}**{{scope}}:** {{/if}}{{subject}}\n{{/each}}"
+    changelogFooter: "\n[Unreleased]: https://github.com/MehedisGits/awesome_ui/compare/{{version}}...HEAD\n[{{version}}]: https://github.com/rakibulislammehedi/awesome_ui/compare/{{previousVersion}}...{{version}}"
+
+scripts:
+  bootstrap:
+    run: melos bootstrap
+    description: Bootstrap all packages
+  clean:
+    run: melos clean
+    description: Clean all packages
+  test:
+    run: flutter test
+    description: Run tests for all packages
+  test:coverage:
+    run: flutter test --coverage
+    description: Run tests with coverage
+  analyze:
+    run: flutter analyze
+    description: Analyze all packages
+  format:
+    run: dart format .
+    description: Format all Dart files
+  format:check:
+    run: dart format --set-exit-if-changed .
+    description: Check if files are formatted
+  build:all:
+    run: flutter build
+    description: Build all packages
+  pub:get:
+    run: flutter pub get
+    description: Get dependencies for all packages
+  pub:upgrade:
+    run: flutter pub upgrade
+    description: Upgrade dependencies for all packages
+  pub:outdated:
+    run: flutter pub outdated
+    description: Check for outdated dependencies
+  lint:
+    run: flutter analyze --fatal-infos
+    description: Run linting with fatal info level
+  deps:check:
+    run: dart run tools/scripts/enforce_deps.dart
+    description: Check dependency constraints
+  api:check:
+    run: dart run tools/scripts/check_public_api.dart
+    description: Check public API stability
+  golden:test:
+    run: flutter test --update-goldens
+    description: Update golden tests
+  golden:verify:
+    run: flutter test
+    description: Verify golden tests
+  accessibility:test:
+    run: flutter test test/accessibility/
+    description: Run accessibility tests
+  performance:test:
+    run: flutter test test/performance/
+    description: Run performance tests
+  integration:test:
+    run: flutter test integration_test/
+    description: Run integration tests
+  test:all:
+    run: dart run scripts/run_tests.dart all
+    description: Run all tests with comprehensive coverage
+  test:unit:
+    run: dart run scripts/run_tests.dart unit
+    description: Run unit tests only
+  test:widget:
+    run: dart run scripts/run_tests.dart widget
+    description: Run widget tests only
+  test:golden:
+    run: dart run scripts/run_tests.dart golden
+    description: Run golden tests only
+  test:accessibility:
+    run: dart run scripts/run_tests.dart accessibility
+    description: Run accessibility tests only
+  test:performance:
+    run: dart run scripts/run_tests.dart performance
+    description: Run performance tests only
+  test:cross-platform:
+    run: dart run scripts/run_tests.dart cross-platform
+    description: Run cross-platform tests only
+  api:baseline:
+    run: dart run tools/scripts/create_api_baseline.dart
+    description: Create API baseline snapshots
+  api:compare:
+    run: dart run tools/scripts/compare_api_baseline.dart
+    description: Compare API baselines and detect breaking changes

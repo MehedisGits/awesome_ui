@@ -1,258 +1,459 @@
-# Contributing to awesome_ui
+# Contributing to Awesome UI
 
-Thank you for your interest in contributing to awesome_ui! This document provides guidelines and information for contributors.
+Thank you for your interest in contributing to Awesome UI! This document provides guidelines and information for contributors.
 
-## Table of Contents
-
-- [Code of Conduct](#code-of-conduct)
-- [Getting Started](#getting-started)
-- [Development Workflow](#development-workflow)
-- [Coding Standards](#coding-standards)
-- [Commit Guidelines](#commit-guidelines)
-- [Pull Request Process](#pull-request-process)
-- [Release Process](#release-process)
-
-## Code of Conduct
-
-This project follows the [Contributor Covenant](https://www.contributor-covenant.org/) Code of Conduct. By participating, you are expected to uphold this code.
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Flutter SDK (3.24.0 or higher)
-- Dart SDK (3.8.1 or higher)
+- Flutter SDK (>=3.10.0)
+- Dart SDK (>=3.0.0)
 - Git
 - IDE (VS Code, Android Studio, or IntelliJ IDEA)
 
-### Setting Up the Development Environment
+### Development Setup
 
-1. Fork the repository
-2. Clone your fork:
+1. **Fork the repository**
    ```bash
-   git clone https://github.com/MehedisGits/awesome_ui.git
+   git clone https://github.com/your-username/awesome_ui.git
    cd awesome_ui
    ```
 
-3. Add the upstream remote:
+2. **Install dependencies**
    ```bash
-   git remote add upstream https://github.com/MehedisGits/awesome_ui.git
+   melos bootstrap
    ```
 
-4. Install dependencies:
+3. **Run tests**
    ```bash
-   flutter pub get
+   melos run test
    ```
 
-5. Run the example app:
+4. **Run the showcase**
    ```bash
-   cd example
+   cd packages/ui_showcase
    flutter run
    ```
 
-## Development Workflow
-
-### Branch Strategy
-
-We use Git Flow with the following branches:
-
-- `main` - Production-ready code
-- `develop` - Integration branch for features
-- `feature/component-name` - New features
-- `bugfix/issue-description` - Bug fixes
-- `hotfix/critical-fix` - Urgent fixes
-- `release/v1.0.0` - Release preparation
-
-### Creating a Feature
-
-1. Create a feature branch from `develop`:
-   ```bash
-   git checkout develop
-   git pull origin develop
-   git checkout -b feature/your-component-name
-   ```
-
-2. Make your changes following the coding standards
-3. Write tests for your changes
-4. Update documentation if needed
-5. Commit your changes using conventional commits
-6. Push your branch and create a pull request
-
-## Coding Standards
-
-### File Structure
-
-Follow the atomic design principles:
-
-```
-lib/
-├── foundation/          # Design system foundation
-├── atoms/              # Basic building blocks
-├── molecules/          # Simple combinations of atoms
-├── organisms/          # Complex UI components
-├── templates/          # Page-level templates
-└── screens/           # Example screens
-```
-
-### Naming Conventions
-
-- **Files**: Use snake_case (e.g., `button_variants.dart`)
-- **Classes**: Use PascalCase with `Aui` prefix (e.g., `AuiButton`)
-- **Variables**: Use camelCase (e.g., `buttonColor`)
-- **Constants**: Use SCREAMING_SNAKE_CASE (e.g., `DEFAULT_PADDING`)
+## 📋 Contribution Guidelines
 
 ### Code Style
 
-- Follow Dart/Flutter conventions
-- Use meaningful variable and function names
-- Add comprehensive documentation
-- Keep functions small and focused
-- Use const constructors where possible
+#### Dart Style
+- Follow the [Dart style guide](https://dart.dev/guides/language/effective-dart/style)
+- Use `dart format` to format code
+- Use `dart analyze` to check for issues
 
-### Documentation
+#### Flutter Style
+- Follow the [Flutter style guide](https://docs.flutter.dev/development/tools/formatting)
+- Use `flutter analyze` to check for issues
+- Use `flutter test` to run tests
 
-- Add dartdoc comments for all public APIs
-- Include usage examples
-- Document parameters and return values
-- Add deprecation notices when needed
+#### Accessibility Style
+- Follow [WCAG 2.1 guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- Ensure all interactive elements meet 48dp minimum touch target
+- Include semantic labels for screen readers
+- Test with screen readers and keyboard navigation
 
-## Commit Guidelines
+### Commit Messages
 
-We use [Conventional Commits](https://www.conventionalcommits.org/) for consistent commit messages.
-
-### Format
+Use [Conventional Commits](https://www.conventionalcommits.org/) format:
 
 ```
-<type>[optional scope]: <description>
+type(scope): description
 
 [optional body]
 
-[optional footer(s)]
+[optional footer]
 ```
 
-### Types
-
+#### Types
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
-- `style`: Code style changes (formatting, etc.)
+- `style`: Code style changes
 - `refactor`: Code refactoring
-- `test`: Adding or updating tests
-- `chore`: Maintenance tasks
-- `perf`: Performance improvements
-- `ci`: CI/CD changes
-- `build`: Build system changes
+- `test`: Test changes
+- `chore`: Build process or auxiliary tool changes
 
-### Scopes
-
-- `atoms`: Atomic components
-- `molecules`: Molecular components
-- `organisms`: Organism components
-- `foundation`: Foundation system
-- `navigation`: Navigation components
-- `feedback`: Feedback components
-- `layout`: Layout components
-- `data-display`: Data display components
-- `responsive`: Responsive utilities
-- `animation`: Animation components
-- `accessibility`: Accessibility features
-- `docs`: Documentation
-- `ci`: CI/CD
-- `build`: Build system
-- `deps`: Dependencies
-
-### Examples
-
-```bash
-feat(atoms): add button variants (outlined, text, icon)
-fix(navigation): resolve bottom nav overflow issue
+#### Examples
+```
+feat(button): add loading state to AppButton
+fix(textfield): resolve focus issue on mobile
 docs(readme): update installation instructions
-style(buttons): format button component code
-refactor(foundation): extract color constants
-test(atoms): add button component tests
-chore(deps): update flutter dependencies
+test(button): add accessibility tests
 ```
 
-## Pull Request Process
+### Pull Request Process
 
-### Before Submitting
-
-1. Ensure your code follows the coding standards
-2. Run tests and ensure they pass:
+1. **Create a feature branch**
    ```bash
-   flutter test
-   flutter analyze
+   git checkout -b feature/your-feature-name
    ```
-3. Update documentation if needed
-4. Add tests for new functionality
-5. Update CHANGELOG.md if applicable
 
-### Pull Request Template
+2. **Make your changes**
+   - Write code following the style guidelines
+   - Add tests for new functionality
+   - Update documentation if needed
 
-When creating a PR, include:
+3. **Run tests and linting**
+   ```bash
+   melos run test
+   melos run lint
+   ```
 
-- **Description**: What changes were made and why
-- **Type**: feat, fix, docs, style, refactor, test, chore
-- **Breaking Changes**: List any breaking changes
-- **Testing**: How the changes were tested
-- **Screenshots**: For UI changes
-- **Checklist**: Ensure all items are completed
+4. **Commit your changes**
+   ```bash
+   git add .
+   git commit -m "feat(component): add new feature"
+   ```
 
-### Review Process
+5. **Push to your fork**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
 
-1. All PRs require at least one review
-2. Maintainers will review code quality, tests, and documentation
-3. Address feedback promptly
-4. Keep PRs focused and reasonably sized
-5. Update PRs with latest changes from main/develop
+6. **Create a pull request**
+   - Use the pull request template
+   - Provide a clear description
+   - Link any related issues
 
-## Release Process
+## 🧪 Testing
 
-### Versioning
+### Test Requirements
 
-We follow [Semantic Versioning](https://semver.org/):
+All new code must include:
 
-- **MAJOR**: Breaking changes
-- **MINOR**: New features (backward compatible)
-- **PATCH**: Bug fixes (backward compatible)
-
-### Release Steps
-
-1. Update version in `pubspec.yaml`
-2. Update `CHANGELOG.md`
-3. Create release branch: `release/v1.0.0`
-4. Run release script: `./scripts/release.sh`
-5. Merge to main and develop
-6. Create GitHub release
-
-## Testing
+- **Unit Tests**: Test individual functions and methods
+- **Widget Tests**: Test UI components
+- **Accessibility Tests**: Test accessibility features
+- **Integration Tests**: Test complete user flows
 
 ### Running Tests
 
 ```bash
 # Run all tests
+melos run test
+
+# Run specific package tests
+cd packages/ui_controls_button
 flutter test
 
-# Run tests with coverage
-flutter test --coverage
+# Run with coverage
+melos run test:coverage
 
-# Run specific test file
-flutter test test/atoms/button_test.dart
+# Run golden tests
+melos run test:golden
 ```
 
 ### Test Coverage
 
-- Aim for 90%+ test coverage
-- Test all public APIs
-- Include widget tests for UI components
-- Add integration tests for complex workflows
+- **Minimum Coverage**: 80% for new code
+- **Critical Paths**: 100% coverage for critical functionality
+- **Accessibility**: 100% coverage for accessibility features
 
-## Questions?
+### Writing Tests
 
-If you have questions about contributing, please:
+#### Unit Tests
+```dart
+test('should return correct color for primary variant', () {
+  final button = AppButton(
+    variant: AppButtonVariant.primary,
+    child: Text('Test'),
+  );
+  
+  expect(button.variant, AppButtonVariant.primary);
+});
+```
 
-1. Check existing issues and discussions
-2. Create a new issue with the `question` label
-3. Join our community discussions
+#### Widget Tests
+```dart
+testWidgets('should render button with child', (WidgetTester tester) async {
+  await tester.pumpWidget(
+    MaterialApp(
+      home: AppButton(
+        onPressed: () {},
+        child: Text('Test'),
+      ),
+    ),
+  );
 
-Thank you for contributing to awesome_ui! 🎉
+  expect(find.text('Test'), findsOneWidget);
+});
+```
+
+#### Accessibility Tests
+```dart
+testWidgets('should have correct semantic properties', (WidgetTester tester) async {
+  await tester.pumpWidget(
+    MaterialApp(
+      home: AppButton(
+        onPressed: () {},
+        child: Text('Test'),
+        semanticLabel: 'Test button',
+      ),
+    ),
+  );
+
+  expect(
+    tester.getSemantics(find.text('Test')),
+    matchesSemantics(
+      label: 'Test button',
+      button: true,
+      enabled: true,
+    ),
+  );
+});
+```
+
+## 📚 Documentation
+
+### Documentation Requirements
+
+All new features must include:
+
+- **API Documentation**: Complete API documentation
+- **Usage Examples**: Real-world usage examples
+- **Migration Guides**: Migration from stock Flutter widgets
+- **Accessibility Notes**: Accessibility considerations
+
+### Writing Documentation
+
+#### API Documentation
+```dart
+/// Cross-platform button component for the Awesome UI library.
+/// 
+/// Provides a unified button API that adapts to different platforms
+/// (Material 3, Cupertino, Web) while maintaining consistent behavior
+/// and accessibility across all platforms.
+class AppButton extends StatefulWidget {
+  /// The widget to display inside the button
+  final Widget child;
+  
+  /// Callback when the button is pressed
+  final VoidCallback? onPressed;
+  
+  /// The visual style variant of the button
+  final AppButtonVariant variant;
+}
+```
+
+#### Usage Examples
+```dart
+// Basic usage
+AppButton(
+  onPressed: () {},
+  child: Text('Click me'),
+)
+
+// With variant
+AppButton(
+  onPressed: () {},
+  variant: AppButtonVariant.secondary,
+  child: Text('Secondary'),
+)
+
+// With size
+AppButton(
+  onPressed: () {},
+  size: AppButtonSize.lg,
+  child: Text('Large'),
+)
+```
+
+#### Migration Guides
+```dart
+// Before (ElevatedButton)
+ElevatedButton(
+  onPressed: () {},
+  child: Text('Click me'),
+)
+
+// After (AppButton)
+AppButton(
+  onPressed: () {},
+  child: Text('Click me'),
+)
+```
+
+## 🎨 Design Guidelines
+
+### Component Design
+
+#### Consistency
+- Follow established patterns
+- Use design tokens consistently
+- Maintain visual hierarchy
+
+#### Accessibility
+- Ensure 48dp minimum touch targets
+- Provide semantic labels
+- Support keyboard navigation
+- Test with screen readers
+
+#### Responsiveness
+- Adapt to different screen sizes
+- Use responsive breakpoints
+- Test on multiple devices
+
+### Design Tokens
+
+#### Colors
+- Use semantic color names
+- Support light/dark modes
+- Include high contrast support
+
+#### Typography
+- Use consistent type scale
+- Support responsive sizing
+- Ensure readability
+
+#### Spacing
+- Use consistent spacing scale
+- Support responsive spacing
+- Maintain visual rhythm
+
+## 🔧 Development Tools
+
+### Required Tools
+
+- **Flutter SDK**: Latest stable version
+- **Dart SDK**: Latest stable version
+- **Melos**: Monorepo management
+- **VS Code**: Recommended IDE
+- **Flutter Inspector**: Widget debugging
+
+### Recommended Extensions
+
+- **Dart**: Dart language support
+- **Flutter**: Flutter support
+- **GitLens**: Git integration
+- **Error Lens**: Error highlighting
+- **Bracket Pair Colorizer**: Code structure
+
+### Code Quality Tools
+
+- **dart format**: Code formatting
+- **dart analyze**: Static analysis
+- **flutter analyze**: Flutter analysis
+- **flutter test**: Testing
+- **flutter test --coverage**: Coverage
+
+## 🐛 Bug Reports
+
+### Before Reporting
+
+1. **Check existing issues**
+2. **Update to latest version**
+3. **Test with minimal reproduction**
+4. **Check documentation**
+
+### Bug Report Template
+
+```markdown
+## Bug Description
+Brief description of the bug
+
+## Steps to Reproduce
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
+
+## Expected Behavior
+What you expected to happen
+
+## Actual Behavior
+What actually happened
+
+## Environment
+- Flutter version: [e.g. 3.10.0]
+- Dart version: [e.g. 3.0.0]
+- Platform: [e.g. iOS, Android, Web]
+- Device: [e.g. iPhone 14, Pixel 7]
+
+## Additional Context
+Any other context about the problem
+```
+
+## 💡 Feature Requests
+
+### Before Requesting
+
+1. **Check existing features**
+2. **Search existing issues**
+3. **Consider alternatives**
+4. **Think about implementation**
+
+### Feature Request Template
+
+```markdown
+## Feature Description
+Brief description of the feature
+
+## Use Case
+Why is this feature needed?
+
+## Proposed Solution
+How should this feature work?
+
+## Alternatives Considered
+What other solutions have you considered?
+
+## Additional Context
+Any other context about the feature request
+```
+
+## 🏷️ Release Process
+
+### Versioning
+
+We use [Semantic Versioning](https://semver.org/):
+
+- **MAJOR**: Breaking changes
+- **MINOR**: New features (backward compatible)
+- **PATCH**: Bug fixes (backward compatible)
+
+### Release Checklist
+
+- [ ] All tests pass
+- [ ] Documentation updated
+- [ ] Changelog updated
+- [ ] Version bumped
+- [ ] Release notes written
+- [ ] Tagged and released
+
+## 📞 Support
+
+### Getting Help
+
+- **GitHub Issues**: Bug reports and feature requests
+- **GitHub Discussions**: Questions and discussions
+- **Discord**: Real-time chat and support
+- **Email**: [support@awesomeui.dev](mailto:support@awesomeui.dev)
+
+### Community Guidelines
+
+- **Be respectful**: Treat everyone with respect
+- **Be constructive**: Provide helpful feedback
+- **Be patient**: Remember that everyone is learning
+- **Be inclusive**: Welcome contributors from all backgrounds
+
+## 📄 License
+
+By contributing to Awesome UI, you agree that your contributions will be licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+Thank you to all contributors who help make Awesome UI better:
+
+- **Core Team**: The main developers
+- **Contributors**: Code contributors
+- **Reviewers**: Code reviewers
+- **Testers**: Bug testers and feedback providers
+- **Documentation**: Documentation contributors
+- **Community**: Users and supporters
+
+---
+
+**Made with ❤️ by the Awesome UI Team**
